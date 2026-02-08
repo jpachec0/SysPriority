@@ -1,0 +1,107 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Corpo da página */
+body {
+    background-color: #f4f6f8;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Layout principal */
+main {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Cards */
+.card {
+    background-color: #ffffff;
+    width: 400px;
+    min-height: 650px;
+    border-radius: 18px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Cabeçalho do card */
+.card header {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.card header h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Conteúdo */
+.card div {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+/* Textos */
+.card p {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+#cardAtendimento {
+    border-top: 6px solid #4caf50;
+}
+
+#cardEspera {
+    border-top: 6px solid #ff9800;
+}
+
+#cardMedicos {
+    border-top: 6px solid #2196f3;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 350px;
+    }
+}
