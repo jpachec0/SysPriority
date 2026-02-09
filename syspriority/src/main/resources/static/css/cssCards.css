@@ -13,9 +13,30 @@ body {
 }
 
 /* Header */
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cabecalho article {
+    flex: 1 1 100%;
+}
+
 header {
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     padding: 20px 0;
+}
+
+.botaoFinalizar{
+    margin-left: auto;
 }
 
 header h1 {
@@ -44,6 +65,22 @@ main {
     gap: 15px;
 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+#cardPacienteAtual, #cardProximo {
+    width: 750px;
+    border-top: 6px solid #2196f3;
+}
+
+#cardPacienteAtual div, #cardProximo div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#cardPacienteAtual div article, #cardProximo div article {
+    flex: 0 0 48%;
 }
 
 /* Cabeçalho do card */
