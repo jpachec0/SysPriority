@@ -35,4 +35,11 @@ public class Consulta {
 
     @Column(nullable = true)
     private String descricaoDetalhadaConsulta;
+
+    @Column(nullable = false)
+    private Long idPacienteConsulta;
+
+    @Column(nullable = false)
+    private Long idMedicoConsulta;
+
 }
