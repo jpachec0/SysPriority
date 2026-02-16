@@ -37,9 +37,16 @@ public class Consulta {
     private String descricaoDetalhadaConsulta;
 
     @Column(nullable = false)
-    private Long idPacienteConsulta;
+    private Long cpfPacienteConsulta;
+
+    @Column(nullable = true)
+    private Long crmMedicoConsulta;
 
     @Column(nullable = false)
-    private Long idMedicoConsulta;
+    private Long gravidadeConsulta;
+
+    @Column(nullable = true, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private Boolean finalizadaConsulta;
+    
 
 }

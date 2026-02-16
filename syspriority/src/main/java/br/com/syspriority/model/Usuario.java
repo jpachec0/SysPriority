@@ -36,4 +36,7 @@ public class Usuario {
     @Column(nullable = false)
     private String tipoUsuario;
 
+    @Column(nullable = true, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private Boolean disponivelUsuario;
+
 }

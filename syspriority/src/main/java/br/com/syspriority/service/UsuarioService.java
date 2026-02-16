@@ -2,7 +2,6 @@ package br.com.syspriority.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +11,14 @@ import br.com.syspriority.repository.UsuarioRepository;
 @Service
 public class UsuarioService {
     
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+    private final UsuarioRepository usuarioRepository;
 
-    @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    public UsuarioService(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = new BCryptPasswordEncoder();
+    }
 
     public List<Usuario> listarUsuarios() {
         return usuarioRepository.findAll();
@@ -40,13 +42,11 @@ public class UsuarioService {
             return usuarioRepository.save(existente);
 
         } else {
-            Usuario salvo = usuarioRepository.save(usuario);
-
-            return salvo;
+            return usuarioRepository.save(usuario);
         }
     }
     
-    public void ExcluirUsuario(Long id) {
+    public void excluirUsuario(Long id) {
         if (usuarioRepository.existsById(id)) {
             usuarioRepository.deleteById(id);
         } else {
@@ -57,6 +57,14 @@ public class UsuarioService {
     public Usuario buscarUsuarioPorId(Long id) {
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+    }
+
+    public List<Usuario> listarMedicos(String tipoUsuario) {
+        return usuarioRepository.findByTipoUsuario(tipoUsuario);
+    }
+
+    public List<Usuario> listarMedicosDisponiveis(String tipoUsuario) {
+        return usuarioRepository.findByDisponibilidadeUsuarioTrueAndTipoUsuario(tipoUsuario);
     }
 
 }
